@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 2025 Tennis Championship </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>2025 Tennis Championship</h1>
+        
+        <div class="player-selection">
+            <h2>Select Two Players</h2>
+            <p class="selection-instruction">Choose any two players to start the tournament</p>
+            <div class="players-grid">
+                <div class="player" data-id="1">
+                    <img src="David-pixel.png" alt="David">
+                    <p>David</p>
+                </div>
+                <div class="player" data-id="2">
+                    <img src="Nick-pixel.png" alt="Nick">
+                    <p>Nick</p>
+                </div>
+                <div class="player" data-id="3">
+                    <img src="Aura-pixel.png" alt="Aura">
+                    <p>Aura</p>
+                </div>
+                <div class="player" data-id="4">
+                    <img src="joao-pixel.png" alt="João">
+                    <p>João</p>
+                </div>
+                <div class="player" data-id="5">
+                    <img src="Adam-pixel.png" alt="Adam">
+                    <p>Adam</p>
+                </div>
+                <div class="player" data-id="6">
+                    <img src="Mesky-pixel.png" alt="Mesky">
+                    <p>Mesky</p>
+                </div>
+            </div>
+            
+            <!-- Difficulty Selection -->
+            <div class="difficulty-selection">
+                <h3>Select Difficulty</h3>
+                <div class="difficulty-options">
+                    <div class="difficulty-option selected" data-difficulty="beginner">
+                        <p>Beginner</p>
+                    </div>
+                    <div class="difficulty-option" data-difficulty="advanced">
+                        <p>Advanced</p>
+                    </div>
+                    <div class="difficulty-option" data-difficulty="expert">
+                        <p>Expert</p>
+                    </div>
+                </div>
+            </div>
+            
+            <button id="start-game" class="button" disabled>Start Tournament</button>
+        </div>
+
+        <div id="game-screen" class="game-screen hidden">
+            <!-- Info button -->
+            <button id="info-button" class="info-button">ℹ️</button>
+            
+            <!-- Modal for game info -->
+            <div id="info-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h3>Game Rules</h3>
+                    <ul>
+                        <li>First player to reach 10 points wins the match</li>
+                        <li>A player scores when the ball passes the opponent without being hit</li>
+                        <li>The ball bounces off the court edges and must be hit by the paddles</li>
+                        <li>The crowd cheers when a player scores a point</li>
+                        <li>Serving alternates after each point</li>
+                    </ul>
+                    
+                    <h3>Controls</h3>
+                    <ul>
+                        <li><strong>Player A (Blue):</strong> W (up) / S (down)</li>
+                        <li><strong>Player B (Red):</strong> Computer controlled</li>
+                        <li><strong>Difficulty:</strong> Press 1 (Easy), 2 (Medium), or 3 (Hard)</li>
+                        <li><strong>Serve:</strong> Spacebar</li>
+                        <li><strong>Reset:</strong> R key or Reset button</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Tennis Scoreboard - positioned where the heading was -->
+            <div class="scoreboard">
+                <div class="score-row">
+                    <div class="score-cell player-name" id="score-player-a-name">David</div>
+                    <div class="score-cell" id="score-a-points">0</div>
+                </div>
+                <div class="score-row">
+                    <div class="score-cell player-name" id="score-player-b-name">Aura</div>
+                    <div class="score-cell" id="score-b-points">0</div>
+                </div>
+            </div>
+            
+            <div class="court-wrapper">
+                <!-- Top billboards row -->
+                <div class="billboards-container billboards-top">
+                    <div id="billboard-top-1" class="billboard billboard-top"></div>
+                    <div id="billboard-top-2" class="billboard billboard-top"></div>
+                </div>
+                
+                <!-- The tennis court -->
+                <div class="court">
+                    <div class="court-lines"></div>
+                    <div class="stands stands-top">
+                        <div class="crowd crowd-top"></div>
+                    </div>
+                    <div class="net"></div>
+                    <div id="ball" class="ball"></div>
+                    <div id="player-a" class="game-player player-a">
+                        <!-- Player A silhouette will be added via JS -->
+                    </div>
+                    <div id="player-b" class="game-player player-b">
+                        <!-- Player B silhouette will be added via JS -->
+                    </div>
+                    <div class="stands stands-bottom">
+                        <div class="crowd crowd-bottom"></div>
+                    </div>
+                </div>
+                
+                <!-- Bottom billboards row -->
+                <div class="billboards-container billboards-bottom">
+                    <div id="billboard-bottom-1" class="billboard billboard-bottom"></div>
+                    <div id="billboard-bottom-2" class="billboard billboard-bottom"></div>
+                </div>
+            </div>
+            
+            <button id="reset-game" class="button">Reset Game</button>
+        </div>
+        
+        <!-- Audio elements -->
+        <audio id="cheer-sound" preload="auto">
+            <source src="https://freesound.org/data/previews/362/362328_6558986-lq.mp3" type="audio/mp3">
+        </audio>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
