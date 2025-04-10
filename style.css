@@ -1,0 +1,46 @@
+/* Add seed pod animations */
+@keyframes floatPod {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+@keyframes bouncePod {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1) rotate(5deg); }
+}
+
+.seed-pod {
+    width: 100%;
+    height: 100%;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3), inset 0 -3px 5px rgba(0,0,0,0.2), inset 0 3px 5px rgba(255,255,255,0.3);
+    border: 2px solid rgba(0,0,0,0.3);
+    animation: floatPod 2s infinite ease-in-out;
+}
+
+.seed-pod.bouncing {
+    animation: bouncePod 0.3s ease-in-out;
+}
+
+.player-face {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.expression {
+    font-size: 12px;
+    line-height: 1;
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+} 
